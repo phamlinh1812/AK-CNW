@@ -3,4 +3,4 @@ Nhóm AK
   
   Trần Quỳnh Trâm  -  4501104251
 
-Đề tài: Xây dựng website bán Album nhóm nhạc KPop
+Đề tài: Xây dựng Website bán Album nhóm nhạc KPop
