@@ -3,7 +3,7 @@ import ProTypes from 'prop-types'
 
 import { withRouter } from 'react-router'
 
-import {useDispatch} from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 import { addItem } from '../redux/shopping-cart/cartItemsSlide'
 import { remove } from '../redux/product-modal/productModalSlice'
@@ -31,7 +31,7 @@ const ProductView = props => {
 
 
     const [previewImg, setPreviewImg] = useState(product.image01)
-    
+
     const [descriptionExpand, setDescriptionExpand] = useState(false)
 
     const [color, setColor] = useState(undefined)
@@ -57,11 +57,6 @@ const ProductView = props => {
 
 
     const check = () => {
-        if (color === undefined) {
-            alert('Please choose the color of the picture frame or the color of the box!')
-            return false
-        }
-
         if (size === undefined) {
             alert('Please choose size or quantity!')
             return false
@@ -70,7 +65,7 @@ const ProductView = props => {
         return true
     }
 
-   const addToCart = () => {
+    const addToCart = () => {
         if (check()) {
             let newItem = {
                 title: product.title,
@@ -109,21 +104,21 @@ const ProductView = props => {
         <div className="product">
             <div className="product__images">
                 <div className="product__images__list">
-                    <div className="product__images__list__item" onClick={() => setPreviewImg (product.image01)}>
-                        <img src={product.image01} alt=""/>
+                    <div className="product__images__list__item" onClick={() => setPreviewImg(product.image01)}>
+                        <img src={product.image01} alt="" />
                     </div>
-                    <div className="product__images__list__item" onClick={() => setPreviewImg (product.image02)}>
-                        <img src={product.image02} alt=""/>
-                        </div>
+                    <div className="product__images__list__item" onClick={() => setPreviewImg(product.image02)}>
+                        <img src={product.image02} alt="" />
+                    </div>
                 </div>
                 <div className="product__images__main">
-                    <img src={previewImg} alt=""/>
+                    <img src={previewImg} alt="" />
                 </div>
                 <div className={`product-description ${descriptionExpand ? 'expand' : ''}`}>
                     <div className="product-description__title">
                         Thông tin sản phẩm sản phẩm
                     </div>
-                    <div className="product-description__content" dangerouslySetInnerHTML={{__html:product.description}}></div>
+                    <div className="product-description__content" dangerouslySetInnerHTML={{ __html: product.description }}></div>
                     <div className="product-description__toggle">
                         <Button size="sm" onClick={() => setDescriptionExpand(!descriptionExpand)}>
                             {
@@ -154,10 +149,10 @@ const ProductView = props => {
                                     </span>
                                 </div>
                             ))
-                       } 
+                        }
                     </div>
                 </div>
-               <div className="product__info__item">
+                <div className="product__info__item">
                     <div className="product__info__item__title">
                         Quantity
                     </div>
@@ -176,23 +171,23 @@ const ProductView = props => {
                 <div className="product__info__item">
                     <Button onClick={() => addToCart()}> Add to cart</Button>
                     <Button onClick={() => goToCart()}> Buy now </Button>
-                    
-                </div>
-                </div>
-                <div className={`product-description mobile ${descriptionExpand ? 'expand' : ''}`}>
-                    <div className="product-description__title">
-                        Product details
-                    </div>
-                    <div className="product-description__content" dangerouslySetInnerHTML={{__html:product.description}}></div>
-                    <div className="product-description__toggle">
-                        <Button size="sm" onClick={() => setDescriptionExpand(!descriptionExpand)}>
-                            {
-                                descriptionExpand ? 'See more' : 'Collapse'
-                            }
-                        </Button>
-                    </div>
+
                 </div>
             </div>
+            <div className={`product-description mobile ${descriptionExpand ? 'expand' : ''}`}>
+                <div className="product-description__title">
+                    Product details
+                </div>
+                <div className="product-description__content" dangerouslySetInnerHTML={{ __html: product.description }}></div>
+                <div className="product-description__toggle">
+                    <Button size="sm" onClick={() => setDescriptionExpand(!descriptionExpand)}>
+                        {
+                            descriptionExpand ? 'See more' : 'Collapse'
+                        }
+                    </Button>
+                </div>
+            </div>
+        </div>
     )
 }
 

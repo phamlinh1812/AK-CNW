@@ -23,9 +23,9 @@ export class Contact extends Component {
         emailjs
             .sendForm(
                 "gmail",
-                "template_x2zjovj",
+                "template_6j4u722",
                 ".contact_form_class",
-                "user_VLc5sALOU4wJo0Fnd4jJU"
+                "1zyL2WZuuPCtwp0do"
             )
             .then()
             .catch();
